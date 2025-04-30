@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mode Switcher</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Mode content will be injected here -->
+  <div id="mode-container"></div>
+
+  <!-- Sticky bottom nav -->
+  <nav id="bottom-nav">
+    <button class="nav-button active" data-mode="fingerpicker">1</button>
+    <button class="nav-button" data-mode="coinflip">2</button>
+    <button class="nav-button" data-mode="dice">3</button>
+    <button class="nav-button" data-mode="rng">4</button>
+  </nav>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

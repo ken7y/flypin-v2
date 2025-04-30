@@ -1,0 +1,76 @@
+/* Basic reset */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100%;
+}
+
+/* Container for the dynamic mode content */
+#mode-container {
+  padding-bottom: 80px; /* room for sticky nav */
+}
+
+/* Sticky bottom nav */
+#bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #222;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Nav buttons */
+.nav-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 25%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.nav-button.active {
+  background: #444;
+}
+
+/* Example to ensure touch points are visible */
+.touch-point {
+  width: 65px;
+  height: 65px;
+  background-color: rgba(0, 150, 136, 0.7);
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  animation: pulse 1s infinite;
+  will-change: transform;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.07692);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(3);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.07692);
+  }
+}
+
+/* Highlight the selected touch point */
+.selected {
+  background-color: #80ef80 !important;
+  width: 200px;
+  height: 200px;
+  transform: translate(-50%, -50%);
+  animation: none;
+  z-index: 10;
+}
