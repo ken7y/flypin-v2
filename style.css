@@ -5,10 +5,18 @@ html {
   padding: 0;
   font-family: sans-serif;
   height: 100%;
+  background-color: #f0f0f0;
+  overflow-y: hidden;
+}
+
+#wrapper {
+  min-height: 100vh;
+  display: flex;
 }
 
 /* Container for the dynamic mode content */
 #mode-container {
+  width: 100%;
   padding-bottom: 80px; /* room for sticky nav */
 }
 
@@ -17,9 +25,11 @@ html {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
-  height: 60px;
-  background: #222;
+  width: calc(100% - 16px);
+  margin: 8px;
+  border-radius: 12px;
+  height: 72px;
+  background: #d9d9d9;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -28,17 +38,18 @@ html {
 
 /* Nav buttons */
 .nav-button {
-  background: none;
   border: none;
+  border-radius: 12px;
+  background: none;
   color: white;
   font-size: 1.5rem;
-  width: 25%;
-  height: 100%;
+  width: 64px;
+  height: 60px;
   cursor: pointer;
 }
 
 .nav-button.active {
-  background: #444;
+  outline: #007bff 2px solid;
 }
 
 /* Example to ensure touch points are visible */
@@ -80,12 +91,14 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2rem;
+  height: 100%;
+  justify-content: space-evenly;
+  /* margin-top: 2rem; */
 }
 
 .coin {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 3s ease;
@@ -107,6 +120,27 @@ html {
 
 .coin-back {
   transform: rotateX(180deg); /* Flip the back face vertically */
+}
+
+#flipBtn,
+#rollBtn,
+#rng-generate {
+  width: 60vw;
+  height: 64px;
+  font-size: large;
+  border-radius: 12px;
+  background-color: #fff;
+  /* background-color: #add8e6; */
+  color: #000;
+  transition: opacity 0.2s ease;
+}
+
+#flipBtn:disabled,
+#rollBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #f0f0f0;
+  color: #888;
 }
 
 /* Keyframes for spinning heads */
@@ -136,4 +170,76 @@ html {
 
 .animate-tails {
   animation: spinTails 3s ease forwards;
+}
+
+/* Dice Roll Styles */
+.dice-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.dice-container {
+  display: flex;
+  justify-content: center;
+  perspective: 600px;
+  margin-top: 2rem;
+}
+
+.dice {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  transform-style: preserve-3d;
+  /* Replace animation with a transition: */
+  transition: transform 3s ease;
+  transform: rotateX(0deg) rotateY(0deg);
+}
+
+.dice-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border: 2px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Position the six faces */
+.dice-face.front {
+  transform: rotateY(0deg) translateZ(75px);
+}
+.dice-face.back {
+  transform: rotateY(180deg) translateZ(75px);
+}
+.dice-face.left {
+  transform: rotateY(-90deg) translateZ(75px);
+}
+.dice-face.right {
+  transform: rotateY(90deg) translateZ(75px);
+}
+.dice-face.top {
+  transform: rotateX(90deg) translateZ(75px);
+}
+.dice-face.bottom {
+  transform: rotateX(-90deg) translateZ(75px);
+}
+
+/* RNG styles */
+#rng-max,
+#rng-min {
+  font-size: 16px; /* Adjust to your desired size */
+  width: 70%;
+}
+
+.rng-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

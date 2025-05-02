@@ -2,13 +2,13 @@
 
 export function init(container) {
   container.innerHTML = `
-      <div style="text-align: center; padding: 2rem;">
+      <div style="text-align: center; padding: 2rem; display: flex; flex-direction: column; align-items: center; height:100%;">
         <h2>Random Number Generator</h2>
-        <div style="margin: 1rem 0;">
-          <label>Min: <input type="number" id="rng-min" value="0" /></label>
-          <label style="margin-left: 1rem;">Max: <input type="number" id="rng-max" value="100" /></label>
+        <div style="margin: 1rem 0; display: flex; flex-direction: column; gap: 24px;">
+          <label class="rng-label">Min: <input type="number" id="rng-min" value="0" /></label>
+          <label class="rng-label">Max: <input type="number" id="rng-max" value="100" /></label>
         </div>
-        <button id="rng-generate" style="padding: 0.5rem 1rem;">Generate</button>
+        <button id="rng-generate">Generate</button>
         <h3 id="rng-result" style="margin-top: 2rem;"></h3>
       </div>
     `;
